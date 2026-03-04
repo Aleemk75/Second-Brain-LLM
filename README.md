@@ -4,6 +4,19 @@ A premium, AI-powered knowledge management system built with **Node.js (Express)
 
 ---
 
+## 📸 UI Screenshots
+
+<div align="center">
+  <img src="UIShots/Screenshot 2026-03-04 080515.png" width="45%" />
+  <img src="UIShots/Screenshot 2026-03-04 080640.png" width="45%" />
+  <img src="UIShots/Screenshot 2026-03-04 080804.png" width="45%" />
+  <img src="UIShots/Screenshot 2026-03-04 080852.png" width="45%" />
+  <img src="UIShots/Screenshot 2026-03-04 080941.png" width="45%" />
+  <img src="UIShots/Screenshot 2026-03-04 081028.png" width="45%" />
+</div>
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Prerequisites
