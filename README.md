@@ -6,14 +6,29 @@ A premium, AI-powered knowledge management system built with **Node.js (Express)
 
 ## 📸 UI Screenshots
 
-<div align="center">
-  <img src="UIShots/Screenshot 2026-03-04 080515.png" width="45%" />
-  <img src="UIShots/Screenshot 2026-03-04 080640.png" width="45%" />
-  <img src="UIShots/Screenshot 2026-03-04 080804.png" width="45%" />
-  <img src="UIShots/Screenshot 2026-03-04 080852.png" width="45%" />
-  <img src="UIShots/Screenshot 2026-03-04 080941.png" width="45%" />
-  <img src="UIShots/Screenshot 2026-03-04 081028.png" width="45%" />
-</div>
+### 🖥️ 1. Main Dashboard
+The neural control center. View all your knowledge items in a premium, organized grid.
+![Main Dashboard](UIShots/dashboard.png)
+
+### 📝 2. Interactive Workspace (Open Notes)
+A distraction-free environment for deep work, writing, and editing your thoughts.
+![Interactive Workspace](UIShots/Hedamo.png)
+
+### 🔍 3. Intelligent Search
+Instantly find any piece of information across your entire second brain.
+![Intelligent Search](UIShots/search.png)
+
+### 🏷️ 4. Smart Filtering
+Organize and slice your knowledge using dynamic category and tag filters.
+![Smart Filtering](UIShots/Filter.png)
+
+### 🤖 5. AI Integration & Insights
+Harness the power of Llama 3.3 to summarize content and extract key insights automatically.
+![AI Integration](UIShots/AI Integration.png)
+
+### ⚡ 6. Knowledge Capture
+Quickly save notes and links with auto-tagging and metadata extraction.
+![Knowledge Capture](UIShots/form.png)
 
 ---
 
