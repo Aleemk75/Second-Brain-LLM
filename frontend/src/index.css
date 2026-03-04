@@ -48,3 +48,25 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.invisible-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}

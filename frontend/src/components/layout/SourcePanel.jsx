@@ -40,7 +40,7 @@ const SourcePanel = ({ sources, loading, activeSource, setActiveSource }) => {
                                 }`}>
                                 {source.type === 'Note' ? <FileText size={16} /> : <LinkIcon size={16} />}
                             </div>
-                            <div className="flex-1 min-w-0 hidden lg:block">
+                            <div className="flex-1 min-w-0">
                                 <h3 className={`text-xs font-medium truncate ${activeSource?._id === source._id ? 'text-primary-container' : 'text-on-surface/70'}`}>{source.title}</h3>
                             </div>
                         </motion.div>

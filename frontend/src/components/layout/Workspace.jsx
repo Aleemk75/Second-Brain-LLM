@@ -54,35 +54,35 @@ const Workspace = ({ activeSource, onBack, onEdit, onDelete, onUpdate }) => {
     }
 
     return (
-        <div className="flex-1 h-full flex flex-col bg-surface">
-            <div className="h-16 border-b border-surface-variant flex items-center justify-between px-8 bg-[#1F1F1F]/50 backdrop-blur-sm z-10">
-                <div className="flex items-center gap-4">
+        <div className="flex-1 h-full flex flex-col bg-surface overflow-hidden">
+            <div className="h-14 lg:h-16 border-b border-surface-variant flex items-center justify-between px-4 lg:px-8 bg-[#1F1F1F]/50 backdrop-blur-sm z-10 shrink-0">
+                <div className="flex items-center gap-1 lg:gap-4 overflow-x-auto invisible-scrollbar">
                     {onBack && (
-                        <button onClick={onBack} className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors flex items-center gap-2 border-r border-surface-variant pr-4 mr-1">
+                        <button onClick={onBack} className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors flex items-center gap-2 border-r border-surface-variant pr-3 lg:pr-4 mr-1 shrink-0">
                             <ArrowLeft size={18} />
-                            <span className="text-xs font-bold uppercase tracking-widest">Back</span>
+                            <span className="hidden sm:inline text-[10px] lg:text-xs font-bold uppercase tracking-widest">Back</span>
                         </button>
                     )}
-                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors"><Bold size={18} /></button>
-                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors"><Italic size={18} /></button>
-                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors border-l border-surface-variant pl-4"><Code size={18} /></button>
-                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors"><LinkIcon size={18} /></button>
+                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors shrink-0"><Bold size={18} /></button>
+                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors shrink-0"><Italic size={18} /></button>
+                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors border-l border-surface-variant pl-3 lg:pl-4 shrink-0"><Code size={18} /></button>
+                    <button className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors shrink-0"><LinkIcon size={18} /></button>
                 </div>
-                <div className="flex items-center gap-4">
-                    <div className="text-xs text-muted-foreground mr-4">
+                <div className="flex items-center gap-2 lg:gap-4 shrink-0">
+                    <div className="hidden sm:block text-[10px] lg:text-xs text-muted-foreground mr-2 lg:mr-4 whitespace-nowrap">
                         {saving ? 'Saving...' : 'All changes saved'}
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-1 lg:gap-2">
                         <button
                             onClick={() => onEdit(activeSource)}
-                            className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors flex items-center gap-2"
+                            className="p-2 hover:bg-neutral-800 rounded-lg text-neutral-400 transition-colors"
                             title="Edit metadata"
                         >
                             <Edit size={18} />
                         </button>
                         <button
                             onClick={() => onDelete(activeSource._id)}
-                            className="p-2 hover:bg-rose-500/10 hover:text-rose-400 rounded-lg text-neutral-400 transition-colors flex items-center gap-2"
+                            className="p-2 hover:bg-rose-500/10 hover:text-rose-400 rounded-lg text-neutral-400 transition-colors"
                             title="Delete"
                         >
                             <Trash2 size={18} />
@@ -91,18 +91,18 @@ const Workspace = ({ activeSource, onBack, onEdit, onDelete, onUpdate }) => {
                 </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-6 lg:p-12 xl:px-32 custom-scrollbar">
-                <div className="max-w-3xl mx-auto space-y-6">
+            <div className="flex-1 overflow-y-auto p-4 lg:p-12 xl:px-32 custom-scrollbar">
+                <div className="max-w-3xl mx-auto space-y-4 lg:space-y-6 text-on-surface">
                     <input
                         type="text"
                         placeholder="Untitled Note"
                         value={title}
                         onChange={(e) => handleUpdate(e.target.value, content)}
-                        className="w-full bg-transparent text-3xl md:text-4xl font-semibold focus:outline-none placeholder:opacity-20 transition-all"
+                        className="w-full bg-transparent text-2xl lg:text-4xl font-semibold focus:outline-none placeholder:opacity-20 transition-all"
                     />
                     <div className="flex gap-2 mb-4 overflow-x-auto invisible-scrollbar whitespace-nowrap">
                         {activeSource.tags?.map(tag => (
-                            <span key={tag} className="text-[10px] md:text-xs font-medium bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full shrink-0">
+                            <span key={tag} className="text-[10px] lg:text-xs font-medium bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full shrink-0">
                                 #{tag}
                             </span>
                         ))}
@@ -115,7 +115,7 @@ const Workspace = ({ activeSource, onBack, onEdit, onDelete, onUpdate }) => {
                                 href={activeSource.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-xs md:text-sm border-none focus:outline-none flex-1 truncate text-primary-container hover:underline"
+                                className="text-[11px] lg:text-sm border-none focus:outline-none flex-1 truncate text-primary-container hover:underline"
                             >
                                 {activeSource.url}
                             </a>
@@ -123,7 +123,7 @@ const Workspace = ({ activeSource, onBack, onEdit, onDelete, onUpdate }) => {
                     )}
 
                     <textarea
-                        className="w-full h-[calc(100vh-280px)] lg:h-[calc(100vh-320px)] bg-transparent resize-none focus:outline-none text-base md:text-lg leading-relaxed text-on-surface/80 placeholder:opacity-20"
+                        className="w-full h-full min-h-[400px] lg:min-h-[500px] bg-transparent resize-none focus:outline-none text-sm lg:text-lg leading-relaxed text-on-surface/80 placeholder:opacity-20"
                         placeholder="Start writing or paste content here..."
                         value={content}
                         onChange={(e) => handleUpdate(title, e.target.value)}

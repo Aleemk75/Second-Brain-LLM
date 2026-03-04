@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Sparkles, Layout, List, History } from 'lucide-react';
+import { Sparkles, Layout, List, History, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { understandSource } from '../../services/api';
 
-const AIStudio = ({ activeSource }) => {
+const AIStudio = ({ activeSource, onClose, isDrawer }) => {
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -21,13 +21,20 @@ const AIStudio = ({ activeSource }) => {
   };
 
   return (
-    <div className="w-80 h-full border-l border-surface-variant bg-[#1A1A1A] flex flex-col">
-      <div className="p-4 border-b border-surface-variant flex items-center gap-2 text-primary-container font-medium">
-        <Sparkles size={18} fill="currentColor" className="opacity-80" />
-        Note Guide
+    <div className={`w-80 h-full border-l border-surface-variant bg-[#1A1A1A] flex flex-col shadow-2xl xl:shadow-none ${isDrawer ? 'max-w-[90vw]' : ''}`}>
+      <div className="p-4 border-b border-surface-variant flex items-center justify-between text-primary-container font-medium">
+        <div className="flex items-center gap-2">
+          <Sparkles size={18} fill="currentColor" className="opacity-80" />
+          Note Guide
+        </div>
+        {onClose && (
+          <button onClick={onClose} className="xl:hidden p-2 hover:bg-surface-variant rounded-xl text-muted-foreground transition-colors">
+            <X size={20} />
+          </button>
+        )}
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-6">
+      <div className="flex-1 overflow-y-auto p-4 space-y-6 invisible-scrollbar">
         <section className="space-y-3">
           <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold px-1">Deep Dive</div>
           <button

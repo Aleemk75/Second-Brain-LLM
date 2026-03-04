@@ -56,9 +56,9 @@ const CaptureModal = ({ isOpen, onClose, onSave, initialData }) => {
                         initial={{ opacity: 0, scale: 0.95, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                        className="relative bg-surface border border-surface-variant w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl z-10"
+                        className="relative bg-surface border border-surface-variant w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col"
                     >
-                        <div className="p-6 border-b border-surface-variant flex items-center justify-between bg-surface-variant/20">
+                        <div className="p-6 border-b border-surface-variant flex items-center justify-between bg-surface-variant/20 shrink-0">
                             <div className="flex items-center gap-3">
                                 <div className="p-2 bg-primary-container text-surface rounded-xl shadow-lg shadow-blue-500/20">
                                     <Sparkles size={20} />
@@ -70,7 +70,7 @@ const CaptureModal = ({ isOpen, onClose, onSave, initialData }) => {
                             </button>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+                        <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto invisible-scrollbar">
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-widest text-muted-foreground/60 mb-2 ml-1">Knowledge Type</label>
                                 <div className="grid grid-cols-3 gap-2">
@@ -79,7 +79,7 @@ const CaptureModal = ({ isOpen, onClose, onSave, initialData }) => {
                                             key={t}
                                             type="button"
                                             onClick={() => setFormData({ ...formData, type: t })}
-                                            className={`py-2.5 rounded-xl border text-xs font-bold uppercase tracking-wider transition-all flex flex-col items-center justify-center gap-1.5 ${formData.type === t
+                                            className={`py-2 rounded-xl border text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all flex flex-col items-center justify-center gap-1.5 ${formData.type === t
                                                 ? 'bg-primary-container text-surface border-primary-container shadow-lg shadow-blue-500/20'
                                                 : 'bg-surface-variant/20 border-transparent hover:border-surface-variant text-muted-foreground/70'
                                                 }`}
@@ -124,24 +124,24 @@ const CaptureModal = ({ isOpen, onClose, onSave, initialData }) => {
                                 <textarea
                                     required
                                     placeholder="Details, thoughts, or context..."
-                                    rows={4}
+                                    rows={formData.type === 'Link' ? 3 : 6}
                                     value={formData.content}
                                     onChange={(e) => setFormData({ ...formData, content: e.target.value })}
                                     className="w-full bg-surface-variant/30 border border-transparent focus:border-blue-500/30 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none transition-all resize-none placeholder:text-muted-foreground/30 leading-relaxed"
                                 />
                             </div>
 
-                            <div className="pt-4 flex gap-3">
+                            <div className="pt-4 flex flex-col sm:flex-row gap-3">
                                 <button
                                     type="button"
                                     onClick={onClose}
-                                    className="flex-1 py-3.5 rounded-2xl bg-surface-variant/40 text-xs font-bold uppercase tracking-widest hover:bg-surface-variant/60 transition-colors"
+                                    className="order-2 sm:order-1 flex-1 py-3 lg:py-4 rounded-2xl bg-surface-variant/40 text-[10px] lg:text-xs font-bold uppercase tracking-widest hover:bg-surface-variant/60 transition-colors"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
-                                    className="flex-[2] py-3.5 rounded-2xl bg-primary-container text-surface text-xs font-bold uppercase tracking-widest hover:shadow-xl hover:shadow-blue-500/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                                    className="order-1 sm:order-2 flex-[2] py-3 lg:py-4 rounded-2xl bg-primary-container text-surface text-[10px] lg:text-xs font-bold uppercase tracking-widest hover:shadow-xl hover:shadow-blue-500/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
                                 >
                                     <Save size={18} />
                                     Save Knowledge
